@@ -42,9 +42,6 @@ namespace QReg_Visualizador
             // 
             this.dgvTurnos.AllowUserToAddRows = false;
             this.dgvTurnos.AllowUserToDeleteRows = false;
-            this.dgvTurnos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTurnos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvTurnos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -65,14 +62,14 @@ namespace QReg_Visualizador
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTurnos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTurnos.Location = new System.Drawing.Point(0, 0);
+            this.dgvTurnos.Location = new System.Drawing.Point(0, -1);
             this.dgvTurnos.Name = "dgvTurnos";
             this.dgvTurnos.ReadOnly = true;
             this.dgvTurnos.RowHeadersVisible = false;
             this.dgvTurnos.RowTemplate.ReadOnly = true;
             this.dgvTurnos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTurnos.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgvTurnos.Size = new System.Drawing.Size(944, 1041);
+            this.dgvTurnos.Size = new System.Drawing.Size(944, 1042);
             this.dgvTurnos.TabIndex = 0;
             this.dgvTurnos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTurnos_CellFormatting);
             this.dgvTurnos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dgvTurnos_MouseMove);
@@ -95,6 +92,7 @@ namespace QReg_Visualizador
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualizador";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Visualizador_FormClosed);
+            this.Load += new System.EventHandler(this.Visualizador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
             this.ResumeLayout(false);
 

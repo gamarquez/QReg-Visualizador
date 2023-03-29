@@ -64,7 +64,7 @@ namespace QReg_Visualizador
 
                 if(entidad.Id != id_turno_llamado)
                 {
-                    dgvTurnos.DataSource =segunda_lista;
+                    dgvTurnos.DataSource = segunda_lista;
                     Ping();
                 }
             }
@@ -96,9 +96,43 @@ namespace QReg_Visualizador
             { this.Left = this.Left + (e.X - xClick); this.Top = this.Top + (e.Y - yClick); }
         }
 
+        private void Visualizador_Load(object sender, EventArgs e)
+        {
+            CargarUbicacion();
+        }
+
         private void dgvTurnos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             ColorearCeldas();
+        }
+
+        private void CargarUbicacion()
+        {
+            //Recupero datos del archivo .config
+            int activo = Convert.ToInt32(ConfigurationManager.AppSettings["Ubicacion_Automatica_Activada"].ToString());
+            int posicion = Convert.ToInt32(ConfigurationManager.AppSettings["Ubicacion_Automatica_Posicion"].ToString());
+            this.StartPosition = FormStartPosition.Manual;
+            Rectangle workArea = Screen.GetWorkingArea(this);
+
+            if (activo == 1)
+            {
+                if (posicion != 0 && posicion != 1)
+                {
+                    MessageBox.Show("Error al recuperar posicion. Se cerrara el programa.");
+                    Application.Exit();
+                }
+                else
+                {
+                    if (posicion == 1)
+                    {
+                        Left = workArea.Right - this.Width;
+                    }
+                    else
+                    {
+                        Left = workArea.Left;
+                    }
+                }
+            }
         }
     }
 }
